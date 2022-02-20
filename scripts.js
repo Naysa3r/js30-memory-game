@@ -1,4 +1,8 @@
 const cards = document.querySelectorAll('.memory-card');
+const restartBtn = document.querySelector('.restart');
+const scoreBtn = document.querySelector('.score');
+const closeBtn = document.querySelector('.close');
+const scoreSheet = document.querySelector('.score-sheet');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
@@ -12,7 +16,7 @@ function flipCard() {
     if (this === firstCard) return;
 
     this.classList.add('flip');
-    
+    attemptsSpan.textContent = att;
     if (!hasFlippedCard) {
             hasFlippedCard = true;
             firstCard = this;
@@ -20,7 +24,7 @@ function flipCard() {
     }
 
     secondCard = this;
-    attemptsSpan.textContent = att;
+
     // hasFlippedCard = false;
     checkForMatch();
 }
@@ -58,6 +62,10 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
+function restartGame() {
+    document.location.reload();
+}
+
 (function shuffle() {
     cards.forEach(card => {
       let ramdomPos = Math.floor(Math.random() * cards.length);
@@ -65,4 +73,16 @@ function resetBoard() {
     });
 })();
 
+function showScore() {
+    scoreSheet.style.display = 'block';
+}
+
+function closeScore() {
+    scoreSheet.style.display = 'none';
+}
+
+restartBtn.addEventListener('click', restartGame);
+scoreBtn.addEventListener('click', showScore);
+closeBtn.addEventListener('click', closeScore);
+// console.log(restartBtn);
 cards.forEach(card => card.addEventListener('click', flipCard));
