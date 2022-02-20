@@ -120,3 +120,5 @@ scoreBtn.addEventListener('click', showScore);
 closeBtn.addEventListener('click', closeScore);
 // console.log(restartBtn);
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+console.log("Футер находится в таблице игроков.");
