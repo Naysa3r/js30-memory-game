@@ -8,7 +8,8 @@ let firstCard, secondCard;
 let lockBoard = false;
 let attemptsSpan = document.querySelector('.try');
 let att = 1;
-
+let pairs = 0;
+let isWin = false;
 
 
 function flipCard() {
@@ -27,14 +28,26 @@ function flipCard() {
 
     // hasFlippedCard = false;
     checkForMatch();
+    checkWin();
 }
 
 function checkForMatch() {
     if (firstCard.dataset.hero === secondCard.dataset.hero) {
         disableCards();
+        pairs++;
         return;
     }
     unflipCards();
+}
+
+function checkWin() {
+    if(pairs == (cards.length / 2)) {
+        isWin = true;
+    }
+    if (isWin) {
+        var name = window.prompt("Congratulations! You win!!!\nEnter your name: ");
+        alert("Your name is " + name);
+    }
 }
 
 function disableCards() {
@@ -71,6 +84,7 @@ function restartGame() {
       let ramdomPos = Math.floor(Math.random() * cards.length);
       card.style.order = ramdomPos;
     });
+    console.log(cards.length / 2);
 })();
 
 function showScore() {
