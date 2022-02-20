@@ -13,6 +13,7 @@ let isWin = false;
 
 
 function flipCard() {
+    
     if (lockBoard) return;
     if (this === firstCard) return;
 
@@ -27,6 +28,7 @@ function flipCard() {
     secondCard = this;
 
     // hasFlippedCard = false;
+
     checkForMatch();
     checkWin();
 }
@@ -45,8 +47,11 @@ function checkWin() {
         isWin = true;
     }
     if (isWin) {
-        var name = window.prompt("Congratulations! You win!!!\nEnter your name: ");
-        alert("Your name is " + name);
+        setTimeout(() => {
+            var name = window.prompt("Congratulations! You win!!!\nEnter your name: ");
+            alert("Your name is " + name);
+    }, 800);
+
     }
 }
 
@@ -84,7 +89,6 @@ function restartGame() {
       let ramdomPos = Math.floor(Math.random() * cards.length);
       card.style.order = ramdomPos;
     });
-    console.log(cards.length / 2);
 })();
 
 function showScore() {
