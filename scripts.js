@@ -3,6 +3,7 @@ const restartBtn = document.querySelector('.restart');
 const scoreBtn = document.querySelector('.score');
 const closeBtn = document.querySelector('.close');
 const scoreSheet = document.querySelector('.score-sheet');
+const scoreTable = document.querySelector('.score-table');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
@@ -49,7 +50,10 @@ function checkWin() {
     if (isWin) {
         setTimeout(() => {
             var name = window.prompt("Congratulations! You win!!!\nEnter your name: ");
-            alert("Your name is " + name);
+            let keys = Object.keys(localStorage)
+            let arr = [name, att];
+            localStorage.setItem(isNaN(keys[length-1]) ? 1 : (keys[length-1] + 1), arr);
+            scoreTable.insertAdjacentHTML('beforeend', `<tr><td>${name}</td><td>${att}</td></tr>`);
     }, 800);
 
     }
@@ -89,6 +93,18 @@ function restartGame() {
       let ramdomPos = Math.floor(Math.random() * cards.length);
       card.style.order = ramdomPos;
     });
+
+    let keys = Object.keys(localStorage);
+    if (keys.length > 10) {
+        while (keys.length > 10) {
+            localStorage.removeItem(keys[0]);
+        }
+    }
+    for(let key of keys) {
+        let str = localStorage.getItem(key[0]).split(',');
+        // alert(`${key}: ${localStorage.getItem(key)}`);
+        scoreTable.insertAdjacentHTML('beforeend', `<tr><td>${str[0]}</td><td>${str[1]}</td></tr>`);
+    }
 })();
 
 function showScore() {

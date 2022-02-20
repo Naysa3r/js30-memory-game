@@ -128,6 +128,10 @@ table {
 td, th {
     background: none; /* Цвет фона ячеек */
     padding: 5px; /* Поля вокруг текста */
+    text-align: center;
+}
+th {
+    color: #f1d37b;
 }
 .close {
     background-color: #d11717;
