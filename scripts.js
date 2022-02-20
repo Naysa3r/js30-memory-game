@@ -52,7 +52,7 @@ function checkWin() {
             var name = window.prompt("Congratulations! You win!!!\nEnter your name: ");
             let keys = Object.keys(localStorage)
             let arr = [name, att];
-            localStorage.setItem(isNaN(keys[length-1]) ? 1 : (keys[length-1] + 1), arr);
+            localStorage.setItem(isNaN(keys[keys.length-1]) ? 1 : (Number(keys[keys.length-1]) + 1), arr);
             scoreTable.insertAdjacentHTML('beforeend', `<tr><td>${name}</td><td>${att}</td></tr>`);
     }, 800);
 
