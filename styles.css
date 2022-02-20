@@ -147,3 +147,45 @@ th {
     margin: -1px 1px;
     cursor: pointer;
 }
+
+footer {
+    max-width: 1280px;
+    margin: auto;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 70px;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 0;
+    width: var(--score-sheet-width);
+  }
+  .footer-data-element {
+    color: #f1d37b;
+    transition: color 0.3s;
+  }
+  .footer-gh {
+    color: #FEFFFE;
+    text-decoration: none;
+  }
+  .footer-gh:hover {
+    color: #f1d37b;
+  }
+  .footer-link-item {
+    color:#FEFFFE; 
+    font-size: 18px;
+    display: inline-block;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(228deg) brightness(106%) contrast(100%);
+    background-image: url(./img/rs_school_js.svg);
+    background-size: cover;
+    height: 1.7em;
+    width: 4.7em;
+    align-self: center;
+  }
+  .footer-link-item:hover {
+    filter: invert(79%) sepia(74%) saturate(288%) hue-rotate(349deg) brightness(100%) contrast(89%);
+  }
