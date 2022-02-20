@@ -101,9 +101,11 @@ function restartGame() {
         }
     }
     for(let key of keys) {
-        let str = localStorage.getItem(key[0]).split(',');
-        // alert(`${key}: ${localStorage.getItem(key)}`);
-        scoreTable.insertAdjacentHTML('beforeend', `<tr><td>${str[0]}</td><td>${str[1]}</td></tr>`);
+        if (Number(key) > 0) {
+            let str = localStorage.getItem(key[0]).split(',');
+            // alert(`${key}: ${localStorage.getItem(key)}`);
+            scoreTable.insertAdjacentHTML('beforeend', `<tr><td>${str[0]}</td><td>${str[1]}</td></tr>`);
+        }
     }
 })();
 
