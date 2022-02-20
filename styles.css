@@ -2,21 +2,40 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: #FEFFFE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3vh;
 }
 
 body {
-    height: 100vh;
     display: flex;
-    background: #534b27;
+    flex-direction: column;
+    background: #2D2A32;
 }
+.buttons-panel {
+    width: auto;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: space-between;
+    gap: 10px;
+}
+.game-button {
+    color: #FEFFFE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3vh;
 
+
+}
 .memory-game {
     width: 880px;
     height: 880px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    perspective: 1200px;
+    flex-direction: column;
+    align-content: center;
+    perspective: 1000px;
 }
 
 .memory-card {
@@ -43,12 +62,16 @@ body {
 .back-face {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 6px;
     position: absolute;
     border-radius: 5px;
-    background: #aa8e41;
+    background: rgb(0,153,51);
+    background: radial-gradient(circle, rgba(0,153,51,1) 0%, rgba(0,129,72,1) 35%, rgb(0, 88, 49) 100%);
+    object-fit: scale-down;
+    background-position: center;
     backface-visibility: hidden;
 }
+
 .front-face {
     transform: rotateY(180deg);
     padding: 5px;

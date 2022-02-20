@@ -2,6 +2,9 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let attemptsSpan = document.querySelector('.try');
+let att = 1;
+
 
 
 function flipCard() {
@@ -17,6 +20,7 @@ function flipCard() {
     }
 
     secondCard = this;
+    attemptsSpan.textContent = att;
     // hasFlippedCard = false;
     checkForMatch();
 }
@@ -44,6 +48,7 @@ function unflipCards() {
         secondCard.classList.remove('flip');
 
         // lockBoard = false;
+        att++;
         resetBoard();
     }, 1500);
 }
